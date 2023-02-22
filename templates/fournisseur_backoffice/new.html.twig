@@ -1,0 +1,13 @@
+{% extends 'base_backoffice.html.twig' %}
+
+{% block title %}New Fournisseur{% endblock %}
+
+{% block body %}
+    <h1>Create new Fournisseur</h1>
+
+    {{ include('fournisseur_backoffice/_form.html.twig') }}
+
+    <a href="{{ path('app_fournisseur_backoffice') }}">back to list</a>
+
+
+{% endblock %}
