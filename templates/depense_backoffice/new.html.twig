@@ -1,0 +1,11 @@
+{% extends 'base_backoffice.html.twig' %}
+
+{% block title %}New Depense{% endblock %}
+
+{% block body %}
+    <h1>Create new Depense</h1>
+
+    {{ include('depense_backoffice/_form.html.twig') }}
+
+    <a href="{{ path('app_depense_backoffice') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base_backoffice.html.twig' %}
+
+{% block title %}Edit Depense{% endblock %}
+
+{% block body %}
+    <h1>Edit Depense</h1>
+
+    {{ include('depense_backoffice/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_depense_backoffice') }}">back to list</a>
+
+    {{ include('depense_backoffice/_delete_form.html.twig') }}
+{% endblock %}

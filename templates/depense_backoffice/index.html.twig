@@ -1,0 +1,81 @@
+{% extends 'base_backoffice.html.twig' %}
+
+{% block title %}Depense index{% endblock %}
+
+{% block body %}
+
+    <!-- Container-fluid starts-->
+            <div class="page-body">
+                <!-- All User Table Start -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card card-table">
+                                <div class="card-body">
+                                    <div class="title-header option-title">
+                                        <h5>Depenses</h5>
+                                        <form class="d-inline-flex">
+                                            <a href="{{ path('app_depense_backoffice_new') }}" class="align-items-center btn btn-theme d-flex">
+                                                <i data-feather="plus"></i>Add New
+                                            </a>
+                                        </form>
+                                    </div>
+
+                                    <div class="table-responsive table-product">
+                                        <table class="table all-package theme-table" id="table_id">
+                                            <thead>
+                                                <tr>
+                                                    <th>Prix</th>
+                                                    <th>Etat</th>
+                                                    <th>Total Par Mois</th>
+                                                    <th>Date</th>
+                                                    <th>Description</th>
+                                                    <th>Option</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {% for depense in depenses %}
+                                                <tr>
+                                                    <td style="text-align:center">{{ depense.prix }}</td>
+
+                                                    <td>{{ depense.etat }}</td>
+
+                                                    <td>{{ depense.totalParMois }}</td>
+
+                                                    <td>{{ depense.date }}</td>
+
+                                                    <td>{{ depense.description }}</td>
+
+                                                    <td>
+                                                        <ul>
+
+                                                            <li>
+                                                                <a href="{{ path('app_depense_backoffice_edit', {'id': depense.id}) }}">
+                                                                    <i class="ri-pencil-line"></i>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                            {{ include('depense_backoffice/_delete_form.html.twig') }}
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                {% else %}
+                                            <tr>
+                                            <td colspan="6">no records found</td>
+                                            </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- All User Table Ends-->
+
+{% endblock %}

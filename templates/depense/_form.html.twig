@@ -1,0 +1,68 @@
+<!-- New Product Add Start -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-sm-8 m-auto">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header-2">
+                                                <h5>Depense Information</h5>
+                                            </div>
+                                            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                                            {{ form_row(form._token) }}
+                                            <form class="theme-form theme-form-2 mega-form">
+                                                
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Prix</label>
+                                                    <div class="col-sm-9">
+                                                            <fieldset>
+                                                                {{ form_row(form.prix, {'attr': {'class': 'form-control','placeholder': "Prix"}})}}
+                                                            </fieldset>
+                                                    </div>
+                                                </div>
+                                                
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Etat</label>
+                                                    <div class="col-sm-9">
+                                                            <fieldset>
+                                                                {{ form_row(form.etat, {'attr': {'class': 'form-control','placeholder': "Etat"}})}}
+                                                            </fieldset>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Total Par Mois</label>
+                                                    <div class="col-sm-9">
+                                                            <fieldset>
+                                                                {{ form_row(form.totalParMois, {'attr': {'class': 'form-control','placeholder': "Total Par Mois"}})}}
+                                                            </fieldset>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Description</label>
+                                                    <div class="col-sm-9">
+                                                            <fieldset>
+                                                                {{ form_row(form.description, {'attr': {'class': 'form-control','placeholder': "Description"}})}}
+                                                            </fieldset>
+                                                    </div>
+                                                </div>
+
+                                                <form class="d-inline-flex">
+                                                <button class="align-items-center btn btn-theme d-flex">{{ button_label|default('Save') }}</button></form>
+
+                                            
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Product Add End -->
+                {{ form_rest(form) }}
+                 {{ form_end(form) }}
