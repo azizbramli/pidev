@@ -1,3 +1,15 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+profile_edit:
+    path: '/editProfile'
+    controller: App\Controller\ProfileController::edit
+app_user:
+    path: /user
+    controller: App\Controller\UserController::index
+app_admin:
+    path: /admin
+    controller: App\Controller\AdminController::index
