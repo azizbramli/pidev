@@ -43,7 +43,7 @@
 
                                                     <td>{{ depense.totalParMois }}</td>
 
-                                                    <td>{{ depense.date }}</td>
+                                                    <td>{{ depense.date ? depense.date|date('Y-m-d H:i:s') : '' }}</td>
 
                                                     <td>{{ depense.description }}</td>
 

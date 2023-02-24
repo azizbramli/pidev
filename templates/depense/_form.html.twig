@@ -35,6 +35,19 @@
                                                 <div class="mb-4 row align-items-center">
                                                     <label class="form-label-title col-sm-3 mb-0">Total Par Mois</label>
                                                     <div class="col-sm-9">
+                                                    <fieldset>
+    
+
+    <div>
+      <input type="checkbox" id="mois<" name="mois<" checked>
+      <label for="mois<">mois</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="Aneé" name="Aneé">
+      <label for="Aneé">Aneé</label>
+    </div>
+</fieldset>
                                                             <fieldset>
                                                                 {{ form_row(form.totalParMois, {'attr': {'class': 'form-control','placeholder': "Total Par Mois"}})}}
                                                             </fieldset>
@@ -46,6 +59,15 @@
                                                     <div class="col-sm-9">
                                                             <fieldset>
                                                                 {{ form_row(form.description, {'attr': {'class': 'form-control','placeholder': "Description"}})}}
+                                                            </fieldset>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Categories</label>
+                                                    <div class="col-sm-9">
+                                                            <fieldset>
+                                                                {{ form_widget(form.categories, {'attr': {'multiple': 'multiple'}}) }}
                                                             </fieldset>
                                                     </div>
                                                 </div>

@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>Depense index</h1>
-
     <table class="table">
         <thead>
             <tr>
@@ -15,6 +14,8 @@
                 <th>Description</th>
                 <th>TotalParMois</th>
                 <th>actions</th>
+                
+            
             </tr>
         </thead>
         <tbody>
@@ -31,9 +32,10 @@
                     <a href="{{ path('app_depense_edit', {'id': depense.id}) }}">edit</a>
                 </td>
             </tr>
+           
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">No records found</td>
             </tr>
         {% endfor %}
         </tbody>

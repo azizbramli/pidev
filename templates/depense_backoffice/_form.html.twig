@@ -50,6 +50,15 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Categories</label>
+                                                    <div class="col-sm-9">
+                                                            <fieldset>
+                                                                {{ form_widget(form.categories, {'attr': {'multiple': 'multiple'}}) }}
+                                                            </fieldset>
+                                                    </div>
+                                                </div>
+
                                                 <form class="d-inline-flex">
                                                 <button class="align-items-center btn btn-theme d-flex">{{ button_label|default('Save') }}</button></form>
 

@@ -29,6 +29,13 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+              // handle the uploaded file
+              $file = $form->get('image')->getData();
+              if ($file) {
+                  $filename = uniqid().'.'.$file->guessExtension();
+                  $file->move($this->getParameter('images_directory'), $filename);
+                  $categorie->setImage($filename);
+              }
             $categorieRepository->save($categorie, true);
 
             return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
@@ -55,7 +62,14 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form->get('image')->getData();
+            if ($file) {
+                $filename = uniqid().'.'.$file->guessExtension();
+                $file->move($this->getParameter('images_directory'), $filename);
+                $categorie->setImage($filename);
+            }
             $categorieRepository->save($categorie, true);
+
 
             return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
         }

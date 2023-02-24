@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DepenseRepository::class)]
 class Depense
@@ -16,18 +17,36 @@ class Depense
     #[ORM\Column]
     private ?int $id = null;
 
+            /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(nullable: true)]
     private ?float $prix = null;
 
+            /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date = null;
 
+            /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $etat = null;
 
+            /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
+            /**
+     * @Assert\NotBlank
+     */
+            /**
+     * @Assert\GreaterThanOrEqual(0)
+     */
     #[ORM\Column(nullable: true)]
     private ?float $totalParMois = null;
 

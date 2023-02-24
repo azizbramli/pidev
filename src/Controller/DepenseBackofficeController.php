@@ -29,6 +29,10 @@ class DepenseBackofficeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Add categories to the new expense
+            foreach ($depense->getCategories() as $category) {
+                $category->setDepense($depense);
+            }
             $depenseRepository->save($depense, true);
 
             return $this->redirectToRoute('app_depense_backoffice', [], Response::HTTP_SEE_OTHER);

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Depense;
 use App\Form\DepenseType;
 use App\Repository\DepenseRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +26,8 @@ class DepenseController extends AbstractController
     public function new(Request $request, DepenseRepository $depenseRepository): Response
     {
         $depense = new Depense();
+        $date= new DateTime('@'. strTotime('now'));
+        $depense-> setDate($date);
         $form = $this->createForm(DepenseType::class, $depense);
         $form->handleRequest($request);
 

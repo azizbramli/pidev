@@ -8,6 +8,7 @@ use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/categorie/backoffice')]
@@ -29,6 +30,12 @@ class CategorieBackofficeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form->get('image')->getData();
+            if ($file) {
+                $filename = uniqid().'.'.$file->guessExtension();
+                $file->move($this->getParameter('images_directory'), $filename);
+                $categorie->setImage($filename);
+            }
             $categorieRepository->save($categorie, true);
 
             return $this->redirectToRoute('app_categorie_backoffice', [], Response::HTTP_SEE_OTHER);
@@ -47,6 +54,12 @@ class CategorieBackofficeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form->get('image')->getData();
+            if ($file) {
+                $filename = uniqid().'.'.$file->guessExtension();
+                $file->move($this->getParameter('images_directory'), $filename);
+                $categorie->setImage($filename);
+            }
             $categorieRepository->save($categorie, true);
 
             return $this->redirectToRoute('app_categorie_backoffice', [], Response::HTTP_SEE_OTHER);
